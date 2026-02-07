@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Shop N.H.N</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section class="banner" style="background-image:url('images/banner.jpg')">
+    <h1></h1>
+    <nav>
+      <a href="#products">Sản phẩm</a>
+      <a href="#contact">Liên hệ</a>
+    </nav>
+  </section>
+
+
+    <section id="products" class="content">
+    <h2>Sản phẩm của shop</h2>
+    <div class="product">
+      <img src="nam-ao-car.jpg" alt="Áo cardigan">
+      <h3>Áo cardigan nam Julido</h3>
+      <p>Giá: 184.100₫</p>
+      <button onclick="openPaymentPopup('Áo cardigan nam Julido')">Mua ngay</button>
+    </div>
+    <div class="product">
+      <img src="nam-quan-ni.jpg" alt="Quần nỉ ống suông">
+      <h3>Quần nỉ ống suông nam</h3>
+      <p>Giá: 167.100₫</p>
+      <button onclick="openPaymentPopup('Quần nỉ ống suông nam')">Mua ngay</button>
+    </div>
+    <div class="product">
+      <img src="nam-quan-kaki.jpg" alt="Quần kaki">
+      <h3>Quần kaki nam Zonef</h3>
+      <p>Giá: 159.000₫</p>
+      <button onclick="openPaymentPopup('Quần kaki nam Zonef')">Mua ngay</button>
+    </div>
+    <div class="product">
+      <img src="sach-C.jpg" alt="Giáo trình C++">
+      <h3>Sách lập trình C++</h3>
+      <p>Giá: 129.000₫</p>
+      <button onclick="openPaymentPopup('Sách lập trình C++')">Mua ngay</button>
+    </div>
+    <div class="product">
+      <img src="sach-vatli.jpg" alt="Sách vật lí">
+      <h3>Sách vật lí-Khí lí tưởng 12</h3>
+      <p>Giá: 139.000₫</p>
+      <button onclick="openPaymentPopup('Sách vật lí-Khí lí tưởng')">Mua ngay</button>
+    </div>
+    <div class="product">
+      <img src="nu-vay1.jpg" alt="Váy ngắn trễ vai">
+      <h3>Váy đen dài tay nữ</h3>
+      <p>Giá: 149.000₫</p>
+      <button onclick="openPaymentPopup('Váy đen dài tay nữ')">Mua ngay</button>
+    </div>
+    <div class="product">
+      <img src="nu-vay2.jpg" alt="Váy ngắn đỏ">
+      <h3>Váy đỏ ngắn tay nữ</h3>
+      <p>Giá: 180.000₫</p>
+      <button onclick="openPaymentPopup('Váy đỏ ngắn tay nữ')">Mua ngay</button>
+    </div>
+    <div class="product">
+      <img src="nu-vay3.jpg" alt="Váy dài đen">
+      <h3>Váy đen dài nữ</h3>
+      <p>Giá: 190.000₫</p>
+      <button onclick="openPaymentPopup('Váy đen dài nữ')">Mua ngay</button>
+    </div>
+    <div class="product">
+      <img src="son.jpg" alt="Combo son môi">
+      <h3>Son romand</h3>
+      <p>Giá: 129.000₫</p>
+      <button onclick="openPaymentPopup('Son romand')">Mua ngay</button>
+    </div>
+<div id="paymentPopup" class="popup">
+  <div class="popup-content">
+    <h2>Chọn phương thức thanh toán</h2>
+    <button onclick="selectPayment('COD')">COD (Thanh toán khi nhận hàng)</button>
+    <button onclick="selectPayment('Banking')">Banking (Chuyển khoản qua QR)</button>
+    <div id="qrBox" style="display:none; margin-top:15px;">
+      <h3>Quét mã QR để thanh toán</h3>
+      <img src="images/qr-bank.jpg" alt="QR ngân hàng" style="width:160px;">
+    </div>
+    <button onclick="closePopup()">Đóng</button>
+  </div>
+</div>
+
+  </section>
+
+
+  <section id="contact" class="content">
+    <h2>Liên hệ</h2>
+    <p>Email: ****nheiyyy@gmail.com</p>
+    <p>SĐT: ****763347</p>
+  </section>
+<script>
+let currentProduct = "";
+
+function openPaymentPopup(productName) {
+    currentProduct = productName;
+    document.getElementById("paymentPopup").style.display = "block";
+}
+
+function closePopup() {
+    document.getElementById("paymentPopup").style.display = "none";
+    document.getElementById("qrBox").style.display = "none";
+}
+
+function selectPayment(method) {
+    if (method === "COD") {
+        alert("Cảm ơn bạn đã mua " + currentProduct + "!\nPhương thức thanh toán: COD.");
+        closePopup();
+    } else if (method === "Banking") {
+        document.getElementById("qrBox").style.display = "block";
+        alert("Cảm ơn bạn đã mua " + currentProduct + "!\nPhương thức thanh toán: Banking (quét QR).");
+    }
+}
+</script>
+</body>
+</html>
